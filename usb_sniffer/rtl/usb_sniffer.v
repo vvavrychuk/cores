@@ -678,6 +678,8 @@ reg        buffer_full_q;
 always @ (posedge rst_i or posedge clk_i)
 if (rst_i)
     buffer_full_q <= 1'b0;
+else if (cfg_enable_reset_w)
+    buffer_full_q <= 1'b0;
 else
     buffer_full_q <= buffer_full_w;
 
